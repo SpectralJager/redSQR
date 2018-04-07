@@ -15,9 +15,10 @@ class Mainwindow(QMainWindow):
 		self.pushButton_4.clicked.connect(self.close)
 
 	def on_pushButton_clicked(self):
-		stw = Startwind()
-		stw.show()
-		self.close()
+		self.stw = Startwind()
+		print('call startwind')
+		self.stw.show()
+		#self.close()
 
 	def on_pushButton_2_clicked(self):
 		sttw = Settingwind()

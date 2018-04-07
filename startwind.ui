@@ -50,20 +50,10 @@
     <string>ImageBackground</string>
    </property>
   </widget>
-  <widget class="QLCDNumber" name="lcdNumber">
-   <property name="geometry">
-    <rect>
-     <x>423</x>
-     <y>0</y>
-     <width>231</width>
-     <height>51</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>0</x>
+     <x>450</x>
      <y>0</y>
      <width>191</width>
      <height>51</height>
@@ -93,7 +83,7 @@
     </font>
    </property>
    <property name="text">
-    <string>99999</string>
+    <string>0</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_4">
@@ -111,7 +101,7 @@
     </font>
    </property>
    <property name="text">
-    <string>99999</string>
+    <string>0</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_5">
@@ -164,6 +154,9 @@
      <pointsize>30</pointsize>
     </font>
    </property>
+   <property name="text">
+    <string>0</string>
+   </property>
   </widget>
   <widget class="QLabel" name="label_7">
    <property name="geometry">
@@ -181,6 +174,37 @@
    </property>
    <property name="text">
     <string>    3:00</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="entButton">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>260</y>
+     <width>171</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>PushButton</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_8">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>191</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>30</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>0</string>
    </property>
   </widget>
  </widget>
