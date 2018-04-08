@@ -25,6 +25,7 @@ class Startwind(QWidget):
 			self.label_8.setText(str(self.up - (self.rang+1)))
 			self.up = int(self.label_8.text())
 			print('False')
+		self.lineEdit.setText('')
 		self.res = self.sumNum()
 
 	def sumNum(self):
