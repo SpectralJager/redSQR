@@ -1,7 +1,6 @@
 import sys
 import random
 from PyQt5.QtWidgets import QWidget
-from PyQt5.QtGui import QKeyEvent
 from PyQt5 import uic
 
 
@@ -9,21 +8,14 @@ class Startwind(QWidget):
 	def __init__(self):
 		super().__init__()
 		uic.loadUi('startwind.ui',self)
-		self.entButton.clicked.connect(self.on_entButton_clicked)
+		print('startwind created')
+		self.entButton.pressed.connect(self.on_entButton)
 		self.rang = 99
 		self.up = int(self.label_8.text())
-		self.start()
-		
-	def start(self):				
-		self.num_1 = random.randint(0,self.rang)		
-		self.num_2 = random.randint(0,self.rang)
-		print(self.num_1,self.num_2)		
-		self.label_3.setText(str(self.num_1))
-		self.label_4.setText(str(self.num_2))
-		
+		self.res = self.sumNum()				
 			
-	def on_entButton_clicked(self):
-		self.res = self.num_1 + self.num_1
+	def on_entButton(self):		
+		print(self.num_1,self.num_2)				
 		print(self.res)
 		if str(self.res) == self.lineEdit.text():
 			self.label_8.setText(str(self.up + (self.rang+1)))
@@ -33,6 +25,13 @@ class Startwind(QWidget):
 			self.label_8.setText(str(self.up - (self.rang+1)))
 			self.up = int(self.label_8.text())
 			print('False')
-		self.start()
+		self.res = self.sumNum()
+
+	def sumNum(self):
+		self.num_1 = random.randint(0,self.rang)		
+		self.num_2 = random.randint(0,self.rang)
+		self.label_3.setText(str(self.num_1))
+		self.label_4.setText(str(self.num_2))
+		return self.num_1 + self.num_2
 
 
