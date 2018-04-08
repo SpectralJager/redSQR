@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>366</width>
-    <height>185</height>
+    <height>235</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -36,7 +36,7 @@
     </property>
     <layout class="QGridLayout" name="gridLayout">
      <item row="2" column="0">
-      <widget class="QRadioButton" name="radioButton_3">
+      <widget class="QRadioButton" name="multiplyButton">
        <property name="font">
         <font>
          <pointsize>12</pointsize>
@@ -46,12 +46,12 @@
         <string>*</string>
        </property>
        <property name="checkable">
-        <bool>false</bool>
+        <bool>true</bool>
        </property>
       </widget>
      </item>
      <item row="1" column="0">
-      <widget class="QRadioButton" name="radioButton_2">
+      <widget class="QRadioButton" name="minusButton">
        <property name="font">
         <font>
          <pointsize>12</pointsize>
@@ -64,12 +64,12 @@
         <string>-</string>
        </property>
        <property name="checkable">
-        <bool>false</bool>
+        <bool>true</bool>
        </property>
       </widget>
      </item>
      <item row="0" column="0">
-      <widget class="QRadioButton" name="radioButton">
+      <widget class="QRadioButton" name="plusButton">
        <property name="font">
         <font>
          <pointsize>12</pointsize>
@@ -84,7 +84,7 @@
       </widget>
      </item>
      <item row="1" column="1">
-      <widget class="QRadioButton" name="radioButton_4">
+      <widget class="QRadioButton" name="allButton">
        <property name="font">
         <font>
          <pointsize>12</pointsize>
@@ -94,12 +94,12 @@
         <string>All</string>
        </property>
        <property name="checkable">
-        <bool>false</bool>
+        <bool>true</bool>
        </property>
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QRadioButton" name="radioButton_5">
+      <widget class="QRadioButton" name="divideButton">
        <property name="font">
         <font>
          <pointsize>12</pointsize>
@@ -109,7 +109,7 @@
         <string>/</string>
        </property>
        <property name="checkable">
-        <bool>false</bool>
+        <bool>true</bool>
        </property>
       </widget>
      </item>
@@ -139,7 +139,7 @@
     </property>
     <layout class="QGridLayout" name="gridLayout_2">
      <item row="2" column="0">
-      <widget class="QRadioButton" name="radioButton_6">
+      <widget class="QRadioButton" name="hardButton">
        <property name="font">
         <font>
          <pointsize>12</pointsize>
@@ -149,12 +149,12 @@
         <string>Hard</string>
        </property>
        <property name="checkable">
-        <bool>false</bool>
+        <bool>true</bool>
        </property>
       </widget>
      </item>
      <item row="0" column="0">
-      <widget class="QRadioButton" name="radioButton_8">
+      <widget class="QRadioButton" name="easyButton">
        <property name="font">
         <font>
          <pointsize>12</pointsize>
@@ -164,12 +164,12 @@
         <string>Easy</string>
        </property>
        <property name="checkable">
-        <bool>false</bool>
+        <bool>true</bool>
        </property>
       </widget>
      </item>
      <item row="1" column="0">
-      <widget class="QRadioButton" name="radioButton_7">
+      <widget class="QRadioButton" name="normalButton">
        <property name="font">
         <font>
          <pointsize>12</pointsize>
@@ -194,6 +194,19 @@
      </item>
     </layout>
    </widget>
+  </widget>
+  <widget class="QPushButton" name="saveSettingButton">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>190</y>
+     <width>331</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Save setting</string>
+   </property>
   </widget>
  </widget>
  <resources/>

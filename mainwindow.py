@@ -5,6 +5,8 @@ from adoutwind import Aboutwind
 from settingwind import Settingwind
 from startwind import Startwind 
 
+
+
 class Mainwindow(QMainWindow):
 	def __init__(self):
 		super().__init__()
@@ -22,12 +24,12 @@ class Mainwindow(QMainWindow):
 		self.close()
 
 	def on_pushButton_2_clicked(self):
-		sttw = Settingwind()
+		self.sttw = Settingwind()
 		print('call sttw')
-		sttw.show()
+		self.sttw.show()
 
 	def on_pushButton_3_clicked(self):
-		abw = Aboutwind()
+		self.abw = Aboutwind()
 		print('call abw')
-		abw.show()
+		self.abw.show()
 
