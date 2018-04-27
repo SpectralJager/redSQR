@@ -2,8 +2,9 @@ import sys
 import random
 from PyQt5.QtWidgets import QWidget
 from PyQt5 import uic
-from PyQt5.QtCore import QSettings
+from PyQt5.QtCore import QSettings, QTimer
 from collections import defaultdict
+
 
 ORGANIZATION_NAME = "SJager"
 APPLICATION_NAME = "redSQR"
@@ -21,11 +22,18 @@ class Startwind(QWidget):
 		self.mode = self.setting.value(SETTING_MODE)
 		self.lvlMode = int(self.setting.value(SETTING_LVL))
 		self.rang = 99
-		self.score = 100
+		self.score = 50
 		self.lvl = 1
 		self.res = 0
+		self.timeMin = 0
+		self.timeHour = 3
+		self.numRes = 20
 		self.up = int(self.label_8.text())
+		self.timer = QTimer()
+
 		print(self.mode,self.lvlMode)
+		self.timer.timeout.connect(self.changeTimer)
+		self.timer.start(1200)
 		self.selectedMode()
 						
 			
@@ -34,6 +42,11 @@ class Startwind(QWidget):
 		print(self.res)
 		if str(self.res) == self.lineEdit.text():
 			self.label_8.setText(str(self.up + (self.score)))
+			if int(self.label_8.text()) == self.score * self.numRes:
+				self.score += (self.score*0.25)
+				self.numRes -= 4 
+				self.
+				self.label_2.setText('Level ' + str(self.lvl))
 			self.up = int(self.label_8.text())
 			print('True')
 		else:
@@ -106,6 +119,23 @@ class Startwind(QWidget):
 			self.res = self.multNum()
 		elif mode == 4:
 			self.res = self.divNum()
+
+	def changeTimer(self):		
+		
+		if self.timeMin < 0:
+			self.timeHour -= 1
+			self.timeMin = 59
+		else:
+			if self.timeMin < 10:
+				time = '   ' + str(self.timeHour) + ':0' + str(self.timeMin)
+			else:
+				time = '   ' + str(self.timeHour) + ':' + str(self.timeMin)
+			self.label_7.setText(time)
+			self.timeMin -= 1
+		if self.timeHour < 0:
+			# save record
+			self.quit()
+
 		
 
 
