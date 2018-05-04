@@ -7,7 +7,7 @@ ORGANIZATION_NAME = "SJager"
 ORGANIZATION_DOMAIN = "None"
 APPLICATION_NAME = "redSQR"
 
-QCoreApplication.setOrganizationName(ORGANIZATION_NAME)
+QCoreApplication.setOrganizationName(ORGANIZATION_NAME) 
 QCoreApplication.setOrganizationDomain(ORGANIZATION_DOMAIN)
 QCoreApplication.setApplicationName(APPLICATION_NAME)
 
