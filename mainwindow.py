@@ -4,6 +4,7 @@ from PyQt5.QtWidgets import QMainWindow
 from PyQt5 import uic
 from PyQt5.QtCore import QSettings, QTimer
 from collections import defaultdict
+from PyQt5.QtGui import QKeyEvent,QPixmap,QPalette,QBrush
 
 
 ORGANIZATION_NAME = "SJager"
@@ -17,6 +18,32 @@ class Mainwindow(QMainWindow):
 	def __init__(self):
 		super().__init__()
 		uic.loadUi('redSQR.ui',self)
+
+		mainOrigPixmap = QPixmap('./frame1.png')
+		palette0 = QPalette()
+		palette0.setBrush(self.mainBgLabel.backgroundRole(),QBrush(mainOrigPixmap))
+		self.mainBgLabel.setPalette(palette0)
+
+		
+		origPixmap = QPixmap('./frame2.png')
+
+		palette = QPalette()
+		palette.setBrush(self.bgLabel1.backgroundRole(),QBrush(origPixmap))
+		self.bgLabel1.setPalette(palette)
+
+		palette2 = QPalette()
+		palette2.setBrush(self.bgLabel2.backgroundRole(),QBrush(origPixmap))
+		self.bgLabel2.setPalette(palette2)
+
+		palette3 = QPalette()
+		palette3.setBrush(self.bgLabel3.backgroundRole(),QBrush(origPixmap))
+		self.bgLabel3.setPalette(palette3)
+
+		palette4 = QPalette()
+		palette4.setBrush(self.bgLabel4.backgroundRole(),QBrush(origPixmap))
+		self.bgLabel4.setPalette(palette4)
+
+
 		print('mainwind created')
 		self.tabWidget.setCurrentIndex(0)
 		self.startButton.clicked.connect(self.startButton_push)
@@ -42,7 +69,7 @@ class Mainwindow(QMainWindow):
 ###########Startwind######################
 	def Startwind(self):
 		self.setting = QSettings(ORGANIZATION_NAME,APPLICATION_NAME)
-		self.entButton.pressed.connect(self.on_entButton_push) 
+		self.entButton.pressed.connect(self.on_entButton_push)
 
 		self.mode = self.setting.value(SETTING_MODE)
 		self.lvlMode = int(self.setting.value(SETTING_LVL))
@@ -55,6 +82,7 @@ class Mainwindow(QMainWindow):
 		self.timeHour = 3
 		self.numRes = 20.0
 		self.tr_answ = 0
+		self.pointLabel.setText('0.0')
 		self.up = float(self.pointLabel.text())
 		self.timer = QTimer()
 
@@ -112,32 +140,35 @@ class Mainwindow(QMainWindow):
 
 	def sumNum(self):
 		print('sumNum')
-		self.num_1 = random.randint(0,self.rang)		
-		self.num_2 = random.randint(0,self.rang)
+		self.num_1 = random.randint(2,self.rang)		
+		self.num_2 = random.randint(2,self.rang)
 		self.firstNum.setText(str(self.num_1))
 		self.secondNum.setText(str(self.num_2))
 		return self.num_1 + self.num_2
 
 	def subNum(self):
 		print('subNum')
-		self.num_1 = random.randint(0,self.rang)		
-		self.num_2 = random.randint(0,self.rang)
+		self.num_1 = random.randint(2,self.rang)		
+		self.num_2 = random.randint(2,self.rang)
 		self.firstNum.setText(str(self.num_1))
 		self.secondNum.setText(str(self.num_2))
 		return self.num_1 - self.num_2
 
 	def multNum(self):
 		print('multNum')
-		self.num_1 = random.randint(0,self.rang)		
+		self.num_1 = random.randint(2,self.rang)		
 		self.num_2 = random.randint(self.rang_2//10,self.rang_2)
-		self.firstNum.setText(str(self.num_1))
-		self.secondNum.setText(str(self.num_2))
-		return self.num_1 * self.num_2
+		if self.num_2 <= 2:
+			return self.multNum()
+		else:
+			self.firstNum.setText(str(self.num_1))
+			self.secondNum.setText(str(self.num_2))
+			return self.num_1 * self.num_2
 
 	def divNum(self):
-		#print('divNum')
+		print('divNum')
 		while True:
-			self.num_1 = random.randint(0,self.rang)		
+			self.num_1 = random.randint(2,self.rang)		
 			self.num_2 = random.randint(self.rang_2//10,self.rang_2)
 			if self.num_1 == 0 or self.num_2 == 0:
 				self.divNum()
