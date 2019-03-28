@@ -18,6 +18,7 @@ class Mainwindow(QMainWindow):
 	def __init__(self):
 		super().__init__()
 		uic.loadUi('redSQR.ui',self)
+		self.count = 0
 
 		mainOrigPixmap = QPixmap('./frame1.png')
 		palette0 = QPalette()
@@ -45,6 +46,7 @@ class Mainwindow(QMainWindow):
 
 
 		print('mainwind created')
+		self.setting = QSettings(ORGANIZATION_NAME,APPLICATION_NAME)
 		self.tabWidget.setCurrentIndex(0)
 		self.startButton.clicked.connect(self.startButton_push)
 		self.scoreboardButton.clicked.connect(self.scoreboardButton_push)
@@ -52,9 +54,10 @@ class Mainwindow(QMainWindow):
 		self.quitButton.clicked.connect(self.close)
 ###########def_button######################
 	def startButton_push(self):
+		print('Startwind create!')
 		self.tabWidget.setCurrentIndex(1)
 		self.Startwind()
-		print('Startwind create!')
+		
 
 	def scoreboardButton_push(self):
 		self.tabWidget.setCurrentIndex(3)
@@ -68,7 +71,8 @@ class Mainwindow(QMainWindow):
 ###########def_button#####################
 ###########Startwind######################
 	def Startwind(self):
-		self.setting = QSettings(ORGANIZATION_NAME,APPLICATION_NAME)
+		self.count+=1
+		print(self.count)
 		self.entButton.pressed.connect(self.on_entButton_push)
 
 		self.mode = self.setting.value(SETTING_MODE)
@@ -89,10 +93,12 @@ class Mainwindow(QMainWindow):
 		print(self.mode,self.lvlMode)
 		self.timer.timeout.connect(self.changeTimer)
 		self.timer.start(1200)
+
 		self.selectedMode()
+		return
 
 	def on_entButton_push(self):		
-		print(self.num_1,self.num_2)				
+		#print(self.num_1,self.num_2)				
 		#print(self.res)
 		if str(self.res) == self.lineEdit.text():
 			self.pointLabel.setText(str(self.up + (self.score)))
@@ -136,7 +142,7 @@ class Mainwindow(QMainWindow):
 			self.divNum()
 		elif self.mode == '5':
 			self.allMode()
-		print(self.res)
+		#print(self.res)
 
 	def sumNum(self):
 		print('sumNum')
