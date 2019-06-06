@@ -117,7 +117,7 @@
          </font>
         </property>
         <property name="text">
-         <string>Score Board</string>
+         <string>Statistic</string>
         </property>
         <property name="shortcut">
          <string>F2</string>
@@ -237,7 +237,7 @@
      <enum>QTabWidget::West</enum>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="startTab">
      <attribute name="title">
@@ -569,7 +569,7 @@
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>10</y>
+         <y>20</y>
          <width>191</width>
          <height>161</height>
         </rect>

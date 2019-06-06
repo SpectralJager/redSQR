@@ -18,7 +18,6 @@ class Mainwindow(QMainWindow):
 	def __init__(self):
 		super().__init__()
 		uic.loadUi('redSQR.ui',self)
-		self.count = 0
 
 		mainOrigPixmap = QPixmap('./frame1.png')
 		palette0 = QPalette()
@@ -71,8 +70,8 @@ class Mainwindow(QMainWindow):
 ###########def_button#####################
 ###########Startwind######################
 	def Startwind(self):
-		self.count+=1
-		print(self.count)
+		#self.count+=1
+		#print(self.count)
 		self.entButton.pressed.connect(self.on_entButton_push)
 
 		self.mode = self.setting.value(SETTING_MODE)
@@ -95,11 +94,10 @@ class Mainwindow(QMainWindow):
 		self.timer.start(1200)
 
 		self.selectedMode()
-		return
-
+		
 	def on_entButton_push(self):		
 		#print(self.num_1,self.num_2)				
-		#print(self.res)
+		print(self.res)
 		if str(self.res) == self.lineEdit.text():
 			self.pointLabel.setText(str(self.up + (self.score)))
 			self.tr_answ += 1
@@ -128,20 +126,21 @@ class Mainwindow(QMainWindow):
 
 	def selectedMode(self):
 		print('call selMode')
-		if self.mode == '1':
+		mode = self.mode
+		if self.mode == '5':
+			mode = str(random.randint(1,4))
+		if mode == '1':
 			self.operationLabel.setText('+')
-			self.res = self.sumNum()
-		elif self.mode == '2':
+			self.sumNum()
+		elif mode == '2':
 			self.operationLabel.setText('-')
-			self.res = self.subNum()
-		elif self.mode == '3':
+			self.subNum()
+		elif mode == '3':
 			self.operationLabel.setText('*')
-			self.res = self.multNum()
-		elif self.mode == '4':
+			self.multNum()
+		elif mode == '4':
 			self.operationLabel.setText('/')
 			self.divNum()
-		elif self.mode == '5':
-			self.allMode()
 		#print(self.res)
 
 	def sumNum(self):
@@ -150,7 +149,7 @@ class Mainwindow(QMainWindow):
 		self.num_2 = random.randint(2,self.rang)
 		self.firstNum.setText(str(self.num_1))
 		self.secondNum.setText(str(self.num_2))
-		return self.num_1 + self.num_2
+		self.res = self.num_1 + self.num_2
 
 	def subNum(self):
 		print('subNum')
@@ -158,18 +157,20 @@ class Mainwindow(QMainWindow):
 		self.num_2 = random.randint(2,self.rang)
 		self.firstNum.setText(str(self.num_1))
 		self.secondNum.setText(str(self.num_2))
-		return self.num_1 - self.num_2
+		self.res = self.num_1 - self.num_2
 
 	def multNum(self):
 		print('multNum')
-		self.num_1 = random.randint(2,self.rang)		
-		self.num_2 = random.randint(self.rang_2//10,self.rang_2)
-		if self.num_2 <= 2:
-			return self.multNum()
-		else:
-			self.firstNum.setText(str(self.num_1))
-			self.secondNum.setText(str(self.num_2))
-			return self.num_1 * self.num_2
+		while True:
+			self.num_1 = random.randint(2,self.rang)		
+			self.num_2 = random.randint(self.rang_2//10,self.rang_2)
+			if self.num_2 <= 2:
+				continue
+			else:
+				self.firstNum.setText(str(self.num_1))
+				self.secondNum.setText(str(self.num_2))
+				self.res = self.num_1 * self.num_2
+				break
 
 	def divNum(self):
 		print('divNum')
@@ -177,36 +178,14 @@ class Mainwindow(QMainWindow):
 			self.num_1 = random.randint(2,self.rang)		
 			self.num_2 = random.randint(self.rang_2//10,self.rang_2)
 			if self.num_1 == 0 or self.num_2 == 0:
-				self.divNum()
-
-			if self.num_1 > self.num_2:
+				continue
+			elif self.num_1 > self.num_2:
 				if (self.num_1 % self.num_2) == 0:
 					self.firstNum.setText(str(self.num_1))
 					self.secondNum.setText(str(self.num_2))
 					self.res = self.num_1 // self.num_2
-					return
-				else:
-					continue
-			else: 
-				continue
+					break
 		
-
-	def allMode(self):
-		print('allMode')
-		mode = random.randint(1,4)
-		if mode == 1:
-			self.operationLabel.setText('+')
-			self.res = self.sumNum()
-		elif mode == 2:
-			self.operationLabel.setText('-')
-			self.res = self.subNum()
-		elif mode == 3:
-			self.operationLabel.setText('*')
-			self.res = self.multNum()
-		elif mode == 4:
-			self.operationLabel.setText('/')
-			self.divNum()
-
 	def changeTimer(self):		
 		
 		if self.timeMin < 0:
