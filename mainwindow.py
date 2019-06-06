@@ -76,7 +76,7 @@ class Mainwindow(QMainWindow):
 
 		self.mode = self.setting.value(SETTING_MODE)
 		self.lvlMode = int(self.setting.value(SETTING_LVL))
-		self.rang = 99
+		self.rang = 9
 		self.rang_2 = 9
 		self.score = 50.0
 		self.lvl = 1
@@ -97,20 +97,21 @@ class Mainwindow(QMainWindow):
 		
 	def on_entButton_push(self):		
 		#print(self.num_1,self.num_2)				
-		print(self.res)
+		#print(self.res)
 		if str(self.res) == self.lineEdit.text():
 			self.pointLabel.setText(str(self.up + (self.score)))
 			self.tr_answ += 1
-			if self.tr_answ == self.numRes*self.lvl:
+			if self.tr_answ == self.numRes:
+				self.tr_answ = 0
 				self.score = self.score*1.50
 				if self.numRes > 5:
 					self.numRes -= 4 
 				self.lvl += 1
 				self.levelLabel.setText('Level ' + str(self.lvl))
-				if (self.lvl%2 == 0) and (self.mode == '3' or self.mode == '4'):
+				if self.lvl % 2 == 0:
 					self.rang *= 10
 					self.rang += 9
-				else:
+				elif self.lvl % 2 == 1:
 					self.rang_2 *= 10
 					self.rang_2 += 9
 			self.up = float(self.pointLabel.text())
@@ -141,20 +142,20 @@ class Mainwindow(QMainWindow):
 		elif mode == '4':
 			self.operationLabel.setText('/')
 			self.divNum()
-		#print(self.res)
+		print(self.res)
 
 	def sumNum(self):
 		print('sumNum')
-		self.num_1 = random.randint(2,self.rang)		
-		self.num_2 = random.randint(2,self.rang)
+		self.num_1 = random.randint(self.rang//9,self.rang)		
+		self.num_2 = random.randint(self.rang_2//9,self.rang_2)
 		self.firstNum.setText(str(self.num_1))
 		self.secondNum.setText(str(self.num_2))
 		self.res = self.num_1 + self.num_2
 
 	def subNum(self):
 		print('subNum')
-		self.num_1 = random.randint(2,self.rang)		
-		self.num_2 = random.randint(2,self.rang)
+		self.num_1 = random.randint(self.rang//9,self.rang)		
+		self.num_2 = random.randint(self.rang_2//9,self.rang_2)
 		self.firstNum.setText(str(self.num_1))
 		self.secondNum.setText(str(self.num_2))
 		self.res = self.num_1 - self.num_2
@@ -162,8 +163,8 @@ class Mainwindow(QMainWindow):
 	def multNum(self):
 		print('multNum')
 		while True:
-			self.num_1 = random.randint(2,self.rang)		
-			self.num_2 = random.randint(self.rang_2//10,self.rang_2)
+			self.num_1 = random.randint(self.rang//9,self.rang)		
+			self.num_2 = random.randint(self.rang_2//9,self.rang_2)
 			if self.num_2 <= 2:
 				continue
 			else:
@@ -175,8 +176,8 @@ class Mainwindow(QMainWindow):
 	def divNum(self):
 		print('divNum')
 		while True:
-			self.num_1 = random.randint(2,self.rang)		
-			self.num_2 = random.randint(self.rang_2//10,self.rang_2)
+			self.num_1 = random.randint(self.rang//9,self.rang)		
+			self.num_2 = random.randint(self.rang_2//9,self.rang_2)
 			if self.num_1 == 0 or self.num_2 == 0:
 				continue
 			elif self.num_1 > self.num_2:
