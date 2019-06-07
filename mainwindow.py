@@ -50,30 +50,40 @@ class Mainwindow(QMainWindow):
 		self.startButton.clicked.connect(self.startButton_push)
 		self.scoreboardButton.clicked.connect(self.scoreboardButton_push)
 		self.settingButton.clicked.connect(self.settingButton_push)
-		self.quitButton.clicked.connect(self.close)
+		self.quitButton.clicked.connect(self.closeWind)
+		self.entButton.pressed.connect(self.on_entButton_push)
+		self.timer = QTimer()
+		self.timer.timeout.connect(self.changeTimer)
+
 ###########def_button######################
 	def startButton_push(self):
 		print('Startwind create!')
+		self.currentIndex = 1
 		self.tabWidget.setCurrentIndex(1)
 		self.Startwind()
 		
 
 	def scoreboardButton_push(self):
+		self.currentIndex = 3		
 		self.tabWidget.setCurrentIndex(3)
-		
+		self.ScoreBoardwind()
 		print('Scoreboard create!')
 
 	def settingButton_push(self):
+		self.currentIndex = 2
 		self.tabWidget.setCurrentIndex(2)
 		self.Settingwind()
 		print('Settingwind create!')
+
+	def closeWind(self):
+		self.currentIndex = 4
+		self.close()
 ###########def_button#####################
+
 ###########Startwind######################
 	def Startwind(self):
 		#self.count+=1
 		#print(self.count)
-		self.entButton.pressed.connect(self.on_entButton_push)
-
 		self.mode = self.setting.value(SETTING_MODE)
 		self.lvlMode = int(self.setting.value(SETTING_LVL))
 		self.rang = 9
@@ -81,19 +91,18 @@ class Mainwindow(QMainWindow):
 		self.score = 50.0
 		self.lvl = 1
 		self.res = 0
-		self.timeMin = 0
-		self.timeHour = 3
+		self.timeSec = 0
+		self.timeMin = 3
 		self.numRes = 20.0
 		self.tr_answ = 0
 		self.pointLabel.setText('0.0')
 		self.up = float(self.pointLabel.text())
-		self.timer = QTimer()
 
 		print(self.mode,self.lvlMode)
-		self.timer.timeout.connect(self.changeTimer)
 		self.timer.start(1200)
 
 		self.selectedMode()
+		return
 		
 	def on_entButton_push(self):		
 		#print(self.num_1,self.num_2)				
@@ -123,6 +132,7 @@ class Mainwindow(QMainWindow):
 		self.lineEdit.setText('')
 		print(self.rang,self.rang_2)
 		self.selectedMode()
+		return
 		
 
 	def selectedMode(self):
@@ -142,7 +152,8 @@ class Mainwindow(QMainWindow):
 		elif mode == '4':
 			self.operationLabel.setText('/')
 			self.divNum()
-		print(self.res)
+		#print(self.res)
+		return
 
 	def sumNum(self):
 		print('sumNum')
@@ -151,6 +162,7 @@ class Mainwindow(QMainWindow):
 		self.firstNum.setText(str(self.num_1))
 		self.secondNum.setText(str(self.num_2))
 		self.res = self.num_1 + self.num_2
+		return
 
 	def subNum(self):
 		print('subNum')
@@ -159,6 +171,7 @@ class Mainwindow(QMainWindow):
 		self.firstNum.setText(str(self.num_1))
 		self.secondNum.setText(str(self.num_2))
 		self.res = self.num_1 - self.num_2
+		return
 
 	def multNum(self):
 		print('multNum')
@@ -172,6 +185,7 @@ class Mainwindow(QMainWindow):
 				self.secondNum.setText(str(self.num_2))
 				self.res = self.num_1 * self.num_2
 				break
+		return
 
 	def divNum(self):
 		print('divNum')
@@ -186,25 +200,77 @@ class Mainwindow(QMainWindow):
 					self.secondNum.setText(str(self.num_2))
 					self.res = self.num_1 // self.num_2
 					break
+		return
 		
-	def changeTimer(self):		
+	def changeTimer(self):
+		if self.currentIndex != 1:
+				self.timer.stop()
+				print('false')
+				return	
 		
-		if self.timeMin < 0:
-			self.timeHour -= 1
-			self.timeMin = 59
-		else:
-			if self.timeMin < 10:
-				time = '   ' + str(self.timeHour) + ':0' + str(self.timeMin)
-			else:
-				time = '   ' + str(self.timeHour) + ':' + str(self.timeMin)
-			self.timeLabel.setText(time)
+		if self.timeSec < 0:
 			self.timeMin -= 1
-		if self.timeHour < 0:
+			self.timeSec = 59
+		else:
+			if self.timeSec < 10:
+				time = '   ' + str(self.timeMin) + ':0' + str(self.timeSec)
+			else:
+				time = '   ' + str(self.timeMin) + ':' + str(self.timeSec)
+			self.timeLabel.setText(time)
+			self.timeSec -= 1
+		if self.timeMin < 0:
+			#self.timer.stop()
+			print('time out')
 			# save record
-			#.......
+			self.saveRecord()
 			#return on main paige
-			self.close()	
+			self.currentIndex = 0
+			self.tabWidget.setCurrentIndex(0)
+		return
+
+	def saveRecord(self):
+		print('save rec')
+		mode = self.mode
+		if mode == '5':
+			mode = 'all'
+		elif mode == '1':
+			mode = '+'
+		elif mode == '2':
+			mode = '-'
+		elif mode == '3':
+			mode = '*'
+		elif mode == '4':
+			mode = '/'
+		#print(mode,self.pointLabel.text())
+		rec_file = open('score.txt','r')
+		#print('file open')
+		temp = [x for x in rec_file.read().split('\n')]
+		rec_file.close()
+		#leng = len(temp)
+		#print(temp)
+		temp = [x.split(' ') for x in temp]
+		print(temp)
+		#print(1)
+		#print(self.pointLabel.text())
+		for i in range(0,5):
+		#	print(i)
+			if temp[i][0] < self.pointLabel.text():
+				print('change pos')
+				temp.insert(i,[self.pointLabel.text(),mode])
+				break  
+		print(temp)
+		temp2 = []
+		for i in range(0,5):
+			temp2.append(temp[i][0]+' '+temp[i][1]+'\n')
+		print(temp2)
+		#print([x for x in temp2])
+		rec_file = open('score.txt','w')
+		[rec_file.write(x) for x in temp2]
+		rec_file.close()
+		return
+
 ###########Startwind######################
+
 ###########Settingwind####################
 	def Settingwind(self):
 		self.saveSettingButton.clicked.connect(self.on_saveSettingButton_clicked)
@@ -248,5 +314,30 @@ class Mainwindow(QMainWindow):
 		elif self.hardButton.isChecked():
 			self.setting.setValue(SETTING_LVL,'3')
 ###########Settingwind####################
+
 ###########ScoreBoardwind#################
-	
+	def ScoreBoardwind(self):
+		#print('hi')
+		rec_file = open('score.txt','r')
+		temp = [x for x in rec_file.read().split('\n')]
+		rec_file.close()
+		#print(temp)
+		leng = len(temp)
+		temp = [x.split(' ') for x in temp]
+		#print(temp)
+		for i in range(0,leng):
+			if (i+1) == 1:
+				self.score1.setText(temp[i][0])
+				self.mode1.setText(temp[i][1])
+			elif (i+1) == 2:
+				self.score2.setText(temp[i][0])
+				self.mode2.setText(temp[i][1])
+			elif (i+1) == 3:
+				self.score3.setText(temp[i][0])
+				self.mode3.setText(temp[i][1])
+			elif (i+1) == 4:
+				self.score4.setText(temp[i][0])
+				self.mode4.setText(temp[i][1])
+			elif (i+1) == 5:
+				self.score5.setText(temp[i][0])
+				self.mode5.setText(temp[i][1])

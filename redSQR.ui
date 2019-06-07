@@ -24,8 +24,8 @@
   </property>
   <property name="maximumSize">
    <size>
-    <width>1280</width>
-    <height>720</height>
+    <width>1260</width>
+    <height>700</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -237,7 +237,7 @@
      <enum>QTabWidget::West</enum>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="startTab">
      <attribute name="title">
@@ -313,6 +313,11 @@
         <height>81</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <pointsize>30</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>Enter</string>
       </property>
@@ -329,8 +334,8 @@
      <widget class="QWidget" name="horizontalLayoutWidget">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>20</y>
+        <x>10</x>
+        <y>40</y>
         <width>911</width>
         <height>80</height>
        </rect>
@@ -783,10 +788,13 @@
          <property name="font">
           <font>
            <pointsize>30</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+           <underline>true</underline>
           </font>
          </property>
          <property name="autoFillBackground">
-          <bool>true</bool>
+          <bool>false</bool>
          </property>
          <property name="text">
           <string>0</string>
@@ -1253,11 +1261,13 @@
          <property name="font">
           <font>
            <pointsize>30</pointsize>
-           <underline>false</underline>
+           <weight>75</weight>
+           <bold>true</bold>
+           <underline>true</underline>
           </font>
          </property>
          <property name="autoFillBackground">
-          <bool>true</bool>
+          <bool>false</bool>
          </property>
          <property name="text">
           <string>   3:00</string>
@@ -1724,10 +1734,13 @@
          <property name="font">
           <font>
            <pointsize>30</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+           <underline>true</underline>
           </font>
          </property>
          <property name="autoFillBackground">
-          <bool>true</bool>
+          <bool>false</bool>
          </property>
          <property name="text">
           <string>Level 1</string>
@@ -1739,7 +1752,7 @@
      <widget class="QLineEdit" name="lineEdit">
       <property name="geometry">
        <rect>
-        <x>490</x>
+        <x>450</x>
         <y>350</y>
         <width>361</width>
         <height>54</height>
@@ -1760,7 +1773,7 @@
      <widget class="QFrame" name="frame_2">
       <property name="geometry">
        <rect>
-        <x>90</x>
+        <x>40</x>
         <y>340</y>
         <width>401</width>
         <height>71</height>
@@ -1782,8 +1795,8 @@
           <brush brushstyle="SolidPattern">
            <color alpha="255">
             <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
+            <green>175</green>
+            <blue>164</blue>
            </color>
           </brush>
          </colorrole>
@@ -1800,8 +1813,8 @@
           <brush brushstyle="SolidPattern">
            <color alpha="255">
             <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
+            <green>215</green>
+            <blue>209</blue>
            </color>
           </brush>
          </colorrole>
@@ -1809,8 +1822,8 @@
           <brush brushstyle="SolidPattern">
            <color alpha="255">
             <red>127</red>
-            <green>127</green>
-            <blue>127</blue>
+            <green>87</green>
+            <blue>82</blue>
            </color>
           </brush>
          </colorrole>
@@ -1818,8 +1831,8 @@
           <brush brushstyle="SolidPattern">
            <color alpha="255">
             <red>170</red>
-            <green>170</green>
-            <blue>170</blue>
+            <green>117</green>
+            <blue>109</blue>
            </color>
           </brush>
          </colorrole>
@@ -1863,8 +1876,8 @@
           <brush brushstyle="SolidPattern">
            <color alpha="255">
             <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
+            <green>175</green>
+            <blue>164</blue>
            </color>
           </brush>
          </colorrole>
@@ -1881,8 +1894,8 @@
           <brush brushstyle="SolidPattern">
            <color alpha="255">
             <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
+            <green>215</green>
+            <blue>209</blue>
            </color>
           </brush>
          </colorrole>
@@ -1928,8 +1941,8 @@
           <brush brushstyle="SolidPattern">
            <color alpha="255">
             <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
+            <green>175</green>
+            <blue>164</blue>
            </color>
           </brush>
          </colorrole>
@@ -1946,8 +1959,8 @@
           <brush brushstyle="SolidPattern">
            <color alpha="255">
             <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
+            <green>215</green>
+            <blue>209</blue>
            </color>
           </brush>
          </colorrole>
@@ -1955,8 +1968,8 @@
           <brush brushstyle="SolidPattern">
            <color alpha="255">
             <red>127</red>
-            <green>127</green>
-            <blue>127</blue>
+            <green>87</green>
+            <blue>82</blue>
            </color>
           </brush>
          </colorrole>
@@ -1964,8 +1977,8 @@
           <brush brushstyle="SolidPattern">
            <color alpha="255">
             <red>170</red>
-            <green>170</green>
-            <blue>170</blue>
+            <green>117</green>
+            <blue>109</blue>
            </color>
           </brush>
          </colorrole>
@@ -2009,8 +2022,8 @@
           <brush brushstyle="SolidPattern">
            <color alpha="255">
             <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
+            <green>175</green>
+            <blue>164</blue>
            </color>
           </brush>
          </colorrole>
@@ -2027,8 +2040,8 @@
           <brush brushstyle="SolidPattern">
            <color alpha="255">
             <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
+            <green>215</green>
+            <blue>209</blue>
            </color>
           </brush>
          </colorrole>
@@ -2065,8 +2078,8 @@
           <brush brushstyle="SolidPattern">
            <color alpha="255">
             <red>127</red>
-            <green>127</green>
-            <blue>127</blue>
+            <green>87</green>
+            <blue>82</blue>
            </color>
           </brush>
          </colorrole>
@@ -2074,8 +2087,8 @@
           <brush brushstyle="SolidPattern">
            <color alpha="255">
             <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
+            <green>175</green>
+            <blue>164</blue>
            </color>
           </brush>
          </colorrole>
@@ -2092,8 +2105,8 @@
           <brush brushstyle="SolidPattern">
            <color alpha="255">
             <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
+            <green>215</green>
+            <blue>209</blue>
            </color>
           </brush>
          </colorrole>
@@ -2101,8 +2114,8 @@
           <brush brushstyle="SolidPattern">
            <color alpha="255">
             <red>127</red>
-            <green>127</green>
-            <blue>127</blue>
+            <green>87</green>
+            <blue>82</blue>
            </color>
           </brush>
          </colorrole>
@@ -2110,8 +2123,8 @@
           <brush brushstyle="SolidPattern">
            <color alpha="255">
             <red>170</red>
-            <green>170</green>
-            <blue>170</blue>
+            <green>117</green>
+            <blue>109</blue>
            </color>
           </brush>
          </colorrole>
@@ -2119,8 +2132,8 @@
           <brush brushstyle="SolidPattern">
            <color alpha="255">
             <red>127</red>
-            <green>127</green>
-            <blue>127</blue>
+            <green>87</green>
+            <blue>82</blue>
            </color>
           </brush>
          </colorrole>
@@ -2137,8 +2150,8 @@
           <brush brushstyle="SolidPattern">
            <color alpha="255">
             <red>127</red>
-            <green>127</green>
-            <blue>127</blue>
+            <green>87</green>
+            <blue>82</blue>
            </color>
           </brush>
          </colorrole>
@@ -2146,8 +2159,8 @@
           <brush brushstyle="SolidPattern">
            <color alpha="255">
             <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
+            <green>175</green>
+            <blue>164</blue>
            </color>
           </brush>
          </colorrole>
@@ -2155,8 +2168,8 @@
           <brush brushstyle="SolidPattern">
            <color alpha="255">
             <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
+            <green>175</green>
+            <blue>164</blue>
            </color>
           </brush>
          </colorrole>
@@ -2173,8 +2186,8 @@
           <brush brushstyle="SolidPattern">
            <color alpha="255">
             <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
+            <green>175</green>
+            <blue>164</blue>
            </color>
           </brush>
          </colorrole>
@@ -2254,7 +2267,7 @@
            </font>
           </property>
           <property name="autoFillBackground">
-           <bool>true</bool>
+           <bool>false</bool>
           </property>
           <property name="midLineWidth">
            <number>-3</number>
@@ -2269,10 +2282,12 @@
           <property name="font">
            <font>
             <pointsize>40</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
            </font>
           </property>
           <property name="autoFillBackground">
-           <bool>true</bool>
+           <bool>false</bool>
           </property>
           <property name="text">
            <string>+</string>
@@ -2287,7 +2302,7 @@
            </font>
           </property>
           <property name="autoFillBackground">
-           <bool>true</bool>
+           <bool>false</bool>
           </property>
           <property name="text">
            <string>9999</string>
@@ -2299,10 +2314,12 @@
           <property name="font">
            <font>
             <pointsize>40</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
            </font>
           </property>
           <property name="autoFillBackground">
-           <bool>true</bool>
+           <bool>false</bool>
           </property>
           <property name="text">
            <string>=</string>
@@ -2320,7 +2337,7 @@
      <widget class="QPushButton" name="saveSettingButton">
       <property name="geometry">
        <rect>
-        <x>310</x>
+        <x>160</x>
         <y>440</y>
         <width>331</width>
         <height>41</height>
@@ -2333,8 +2350,8 @@
      <widget class="QGroupBox" name="groupBox">
       <property name="geometry">
        <rect>
-        <x>300</x>
-        <y>260</y>
+        <x>150</x>
+        <y>270</y>
         <width>211</width>
         <height>171</height>
        </rect>
@@ -2782,7 +2799,7 @@
        </palette>
       </property>
       <property name="autoFillBackground">
-       <bool>true</bool>
+       <bool>false</bool>
       </property>
       <property name="title">
        <string>GameMode</string>
@@ -2881,8 +2898,8 @@
      <widget class="QGroupBox" name="groupBox_2">
       <property name="geometry">
        <rect>
-        <x>510</x>
-        <y>260</y>
+        <x>350</x>
+        <y>270</y>
         <width>141</width>
         <height>171</height>
        </rect>
@@ -3330,7 +3347,7 @@
        </palette>
       </property>
       <property name="autoFillBackground">
-       <bool>true</bool>
+       <bool>false</bool>
       </property>
       <property name="title">
        <string>Difficulty Levels </string>
@@ -3468,6 +3485,345 @@
       </property>
       <property name="text">
        <string/>
+      </property>
+     </widget>
+     <widget class="Line" name="line">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>120</y>
+        <width>511</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="Line" name="line_2">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>127</y>
+        <width>20</width>
+        <height>431</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+     <widget class="Line" name="line_3">
+      <property name="geometry">
+       <rect>
+        <x>700</x>
+        <y>127</y>
+        <width>20</width>
+        <height>431</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+     <widget class="Line" name="line_4">
+      <property name="geometry">
+       <rect>
+        <x>199</x>
+        <y>550</y>
+        <width>511</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="Line" name="line_5">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>127</y>
+        <width>20</width>
+        <height>431</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="Scoreslabel">
+      <property name="geometry">
+       <rect>
+        <x>270</x>
+        <y>80</y>
+        <width>161</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>30</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Scores</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="Modeslabel">
+      <property name="geometry">
+       <rect>
+        <x>560</x>
+        <y>82</y>
+        <width>121</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>30</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Mode</string>
+      </property>
+     </widget>
+     <widget class="Line" name="line_6">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>200</y>
+        <width>511</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="Line" name="line_7">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>380</y>
+        <width>511</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="Line" name="line_8">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>470</y>
+        <width>511</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="Line" name="line_9">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>290</y>
+        <width>511</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="score1">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>130</y>
+        <width>291</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+      <property name="textFormat">
+       <enum>Qt::AutoText</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="score2">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>220</y>
+        <width>291</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="score3">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>310</y>
+        <width>291</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="score4">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>390</y>
+        <width>291</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="score5">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>480</y>
+        <width>291</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="mode1">
+      <property name="geometry">
+       <rect>
+        <x>540</x>
+        <y>140</y>
+        <width>151</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>None</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="mode2">
+      <property name="geometry">
+       <rect>
+        <x>540</x>
+        <y>230</y>
+        <width>151</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>None</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="mode3">
+      <property name="geometry">
+       <rect>
+        <x>540</x>
+        <y>320</y>
+        <width>151</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>None</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="mode4">
+      <property name="geometry">
+       <rect>
+        <x>540</x>
+        <y>410</y>
+        <width>151</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>None</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="mode5">
+      <property name="geometry">
+       <rect>
+        <x>540</x>
+        <y>490</y>
+        <width>151</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>None</string>
       </property>
      </widget>
     </widget>
